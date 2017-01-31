@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Widget</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+
+<body>
+<nav class="navbar navbar-fixed-top bg-primary">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="widget-list.html" class="navbar-link naviBar">
+                <span class="glyphicon glyphicon-ok">
+                </span>
+            </a>
+        </div>
+        <div class="navbar-text pull-left">
+            <a href="widget-list.html" class="navbar-link naviBar">
+                <span class="glyphicon glyphicon-chevron-left">
+                </span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand naviBar" href="#">
+                Widget Edit
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class = "pushDown container-fluid">
+
+    <div>
+    <label for="widget-name">Name</label>
+    <input value="Widget n"
+           class="form-control"
+           id="widget-name"/>
+
+    <label for="widget-description">Text</label>
+    <input value="Widget n's description. Feel free to modify this description to your liking."
+              class="form-control"
+              id="widget-description"></input>
+
+    <label for="widget-size">Size</label>
+
+    </div>
+    <div>
+    <select name="size" class = "container-fluid">
+        <option value="one">1</option>
+        <option value="two">2</option>
+        <option value="three">3</option>
+        <option value="four">4</option>
+        <option value="five">5</option>
+        <option value="six">6</option>
+    </select>
+    </div>
+    <!--/*<input value="3"
+           class="form-control"
+           id="widget-size"></input>-->
+
+    <a class="btn btn-danger btn-block pushDown"
+       href="widget-list.html">Delete</a>
+</div>
+
+
+
+<nav class="navbar navbar-fixed-bottom bg-primary">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="profile.html" class="navbar-link naviBar">
+                <span class="glyphicon glyphicon-user">
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
