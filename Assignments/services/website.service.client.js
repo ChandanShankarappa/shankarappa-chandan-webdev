@@ -59,7 +59,7 @@
                     websites[w].description = website.description;
                     websites[w].name = website.name;
                     websites[w].developerId = website.developerId;
-                    return angular.copy(websites[i]);
+                    return angular.copy(websites[w]);
                 }
             }
             return null;

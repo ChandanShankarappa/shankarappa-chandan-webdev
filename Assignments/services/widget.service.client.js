@@ -20,7 +20,7 @@
             "findWidgetsByPageId" : findWidgetsByPageId,
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
-            "deleteWidget": deletePage
+            "deleteWidget": deleteWidget
             //TODO: complete the CRUD functions
             // "createUser": createUser,
             // "deleteUser": deleteUser

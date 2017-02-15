@@ -11,7 +11,7 @@
         ];
         var api = {
             "createPage" : createPage,
-            "findPageByWebsiteId" : findPageByWebsiteId,
+            "findPagesByWebsiteId" : findPagesByWebsiteId,
             "findPageById": findPageById,
             "updatePage": updatePage,
             "deletePage": deletePage
@@ -24,11 +24,11 @@
         function createPage(websiteId, page)
         {
             page.websiteId = websiteId;
-            page._id = ((new Date()).getTime()).toString();
+            page._id = (parseInt(pages[pages.length -1]._id) + 1).toString();
             pages.push(page);
         }
 
-        function findPageByWebsiteId(websiteId)
+        function findPagesByWebsiteId(websiteId)
         {
             var sitePages = [];
             for(var p in pages){
@@ -50,7 +50,7 @@
 
         function updatePage(pageId, page) {
             for(var p in pages) {
-                if( pages[p]._id == pageId ) {
+                if( pages[p]._id === pageId ) {
                     pages[p].name = page.name;
                     pages[p].description = page.description;
                     return pages;
