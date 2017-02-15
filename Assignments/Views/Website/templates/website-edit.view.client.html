@@ -1,0 +1,87 @@
+
+<nav class="navbar navbar-fixed-top bg-primary">
+    <div class="row-container-fluid">
+        <div class="col-sm-4 hidden-xs">
+            <div class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}/website" class="naviBar">
+                <span class="glyphicon glyphicon-chevron-left">
+                </span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a href = "#" class="navbar-brand naviBar">
+                    Websites
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.userId}}/website/new" class="naviBar">
+                <span class="glyphicon glyphicon-plus">
+                </span>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="navbar-header pull-left">
+                <a class="navbar-brand naviBar spaceHandle" href="#">Edit Website
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updateWebsite(model.website)" class="naviBar">
+                <span class="glyphicon glyphicon-ok">
+                </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="col-sm-4 hidden-xs">
+
+    <div class="container-fluid">
+        <ul class="list-group">
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
+                    {{website.name}}
+                </a>
+                <div class="pull-right">
+                    <a href="#/user/{{website.developerId}}/website/{{website._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<div class="col-sm-8 pushDown">
+    <label for="website-name">Name</label>
+    <input value="Website n"
+           ng-model="model.website.name"
+           class="form-control"
+           id="website-name"/>
+
+    <label for="website-description">Description</label>
+    <textarea placeholder=""
+              class="form-control"
+              ng-model="model.website.description"
+              id="website-description"
+              rows = "3">Website n's description. Feel free to modify this description to your liking.</textarea>
+
+    <a class="btn btn-danger btn-block pushDown"
+       ng-click="model.deleteWebsite()">Delete</a>
+</div>
+
+
+
+<nav class="navbar navbar-fixed-bottom bg-primary">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="#/user/:uid" class="navbar-link naviBar">
+                <span class="glyphicon glyphicon-user">
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
