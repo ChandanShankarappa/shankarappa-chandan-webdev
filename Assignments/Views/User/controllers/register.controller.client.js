@@ -5,9 +5,9 @@
 
     function RegisterController($location, UserService) {
         var vm = this;
-        vm.register = register;
+        vm.register = registerUser;
 
-        function register(user) {
+        function registerUser(user) {
             var registeredUser = UserService.createUser(user);
             $location.url("/user/" + registeredUser._id);
         }

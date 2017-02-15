@@ -23,10 +23,16 @@
         };
         return api;
 
-        function createUser(newUser)
-        {
+        function createUser(user) {
+            var userId = (parseInt(users[users.length -1]._id) + 1).toString();
+            var newUser = {_id: userId,
+                username: user.username,
+                password: user.password,
+                email: user.email,
+                firstName: user.firstname,
+                lastName: user.lastname};
             users.push(newUser);
-            return users;
+            return angular.copy(newUser);
         }
 
         function findUserByUsername(uName)
@@ -41,7 +47,7 @@
 
         function updateUser(userId, newUser) {
             for(var u in users) {
-                if( users[u]._id == userId ) {
+                if( users[u]._id === userId ) {
                     users[u].firstName = user.firstName;
                     users[u].lastName = user.lastName;
                     users[u].username = user.username;
@@ -54,7 +60,7 @@
 
         function findUserById(userId) {
             for(var u in users) {
-                if( users[u]._id == userId ) {
+                if( users[u]._id === userId ) {
                     return users[u];
                 }
             }
@@ -63,8 +69,8 @@
 
         function findUserByCredentials(username, password) {
             for(var u in users) {
-                if( users[u].username == username &&
-                    users[u].password == password ) {
+                if( users[u].username === username &&
+                    users[u].password === password ) {
                     return users[u];
                 }
             }
@@ -74,7 +80,7 @@
         function deleteUser(userId)
         {
             for(var u in users) {
-                if (users[u]._id == userId) {
+                if (users[u]._id === userId) {
                     users.splice(u,1);
                 }
             }
