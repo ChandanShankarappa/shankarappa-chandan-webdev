@@ -22,7 +22,7 @@
     </div>
     <div class="col-sm-8">
         <div class="navbar-header pull-left">
-            <a class="navbar-brand naviBar" href="#">
+            <a class="navbar-brand naviBar spaceHandle" href="#">
                 New Website
             </a>
         </div>
@@ -37,7 +37,7 @@
 </nav>
 
 <div class="col-sm-4 hidden-xs">
-    <div class="container-fluid">
+    <div class="container-fluid pushDown">
         <ul class="list-group">
             <li ng-repeat="website in model.websites" class="list-group-item">
                 <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">

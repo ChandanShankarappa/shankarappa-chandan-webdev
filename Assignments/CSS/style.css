@@ -39,3 +39,9 @@ body {
     padding : 0px 0px;
     line-height : 50px;
 }
+
+.listHandler{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 60px;
+}
