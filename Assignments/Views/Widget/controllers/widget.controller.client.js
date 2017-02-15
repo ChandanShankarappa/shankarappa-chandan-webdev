@@ -15,7 +15,10 @@
         vm.checkYouTubeURLSafety = checkYouTubeURLSafety;
 
         function init() {
+            console.log("Before call");
+            console.log(vm.pageId);
             vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
+            console.log(vm.widgets);
         }
 
         init();
@@ -47,7 +50,9 @@
 
         function createHeaderWidget() {
             var newWidget = { "_id": "", "widgetType": "HEADER", "pageId": "", "size": 2, "text": "Text"};
+            console.log("hit");
             newWidget = WidgetService.createWidget(vm.pageId, newWidget);
+            console.log(newWidget)
             $location.url('/user/'+vm.userId+'/website/'+vm.websiteId+'/page/'+vm.pageId+'/widget/'+ newWidget._id);
         }
 

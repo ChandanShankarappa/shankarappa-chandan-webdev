@@ -21,13 +21,9 @@
         </div>
     </div>
 </nav>
-
-
-<div class="container-fluid">
-    <div ng-repeat="widget in model.widgets"
-         class = "pushdown">
-        <div ng-switch="widget.widgetType">
-            <div class="widget-dragger">
+    <div class ="container-fluid listHandler" ng-repeat="widget in model.widgets">
+        <div  ng-switch="widget.widgetType">
+            <div class="widgetHandler">
                 <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
@@ -43,7 +39,7 @@
                 <ng-include src="'Views/Widget/templates/widget-youtube.view.client.html'">
             </div>
             <div ng-switch-when="HTML">
-                <div ng-bind-html="model.checkHTMLSafety(widget.text)"></div>
+                <div ng-bind-html="'Views/Widget/templates/widget-html.view.client.html'"></div>
             </div>
         </div>
     </div>

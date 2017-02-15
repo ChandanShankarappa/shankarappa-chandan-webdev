@@ -20,7 +20,7 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="website-list">
+    <div class="listHandler">
         <label for="widget-text">Text</label>
         <input ng-model="model.widget.text"
                id="widget-text"
@@ -43,7 +43,7 @@
         </div>
 
         <a class="form-control btn btn-danger pushDown"
-           ng-click="model.deleteWidget(model.widget._id)">
+           ng-click="model.deleteWidget(model.model.widget._id)">
             Delete
         </a>
     </div>

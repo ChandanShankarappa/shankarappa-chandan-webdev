@@ -5,15 +5,13 @@
 
     function WidgetService() {
         var widgets = [
-            { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
-            { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-                "url": "http://lorempixel.com/400/200/"},
-            { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
-            { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-                "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+            {_id: "123", widgetType : "HEADER", pageId: "321", size:"1", text: "GIZMODO"},
+            {_id: "234", widgetType : "HEADER", pageId: "123", size:"4", text: "Something"},
+            {_id: "345", widgetType : "IMAGE", pageId: "321", width:"90%", url : "https://s-media-cache-ak0.pinimg.com/originals/a2/2a/0a/a22a0a7e624943303b23cc326598c167.jpg"},
+            {_id: "456", widgetType : "HTML", pageId: "123", text: "<p>Some text of paragraph</p>"},
+            {_id: "567", widgetType : "HEADER", pageId: "321", size:"5", text: "Something else"},
+            {_id: "678", widgetType : "YOUTUBE", pageId: "321", width:"75%", url: "https://www.youtube.com/embed/vlDzYIIOYmM"},
+            {_id: "789", widgetType : "HTML", pageId: "321", text: "<p>Lorem <i>Ipsum</i> something</p>"}
         ];
         var api = {
             "createWidget" : createWidget,
@@ -32,16 +30,24 @@
             widget.pageId = pageId;
             widget._id = ((new Date()).getTime()).toString();
             widgets.push(widget);
-            return angular.copy(widget);
+            console.log("createHit");
+            console.log(widgets);
+            console.log(widget);
+           // return angular.copy(widget);
+            return widget;
         }
 
         function findWidgetsByPageId(pageId)
         {
             var widget = [];
+            console.log(pageId);
             for(var w in widgets) {
-                if( widgets.pageId == pageId ) {
+                if( widgets[w].pageId === pageId ) {
                     widget.push(widgets[w]);
+                    console.log(widgets[w]);
+                    console.log("Hit321");
                 }
+                console.log("hit function");
             }
             return widget;
         }
@@ -76,6 +82,10 @@
                         widgets[w].text = widget.text;
                     }
                     return widgets;
+                }
+                else
+                {
+                    console.log("hittt")
                 }
             }
             return null;
