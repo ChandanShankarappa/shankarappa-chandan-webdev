@@ -22,13 +22,8 @@
         }
 
         return api;
-        // TODO: complete website crud functions
-        // this.createWebsite = createWebsite;
-        // this.findAllWebsites = findAllWebsites;
-        // this.findWebsiteById = findWebsiteById;
 
-        function createWebsite(userId, website)
-        {
+        function createWebsite(userId, website) {
             website.developerId = userId;
             website._id = ((new Date()).getTime()).toString();
             websites.push(website);

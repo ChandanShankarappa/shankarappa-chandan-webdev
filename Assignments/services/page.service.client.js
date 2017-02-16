@@ -15,21 +15,16 @@
             "findPageById": findPageById,
             "updatePage": updatePage,
             "deletePage": deletePage
-            //TODO: complete the CRUD functions
-            // "createUser": createUser,
-            // "deleteUser": deleteUser
         };
         return api;
 
-        function createPage(websiteId, page)
-        {
+        function createPage(websiteId, page) {
             page.websiteId = websiteId;
             page._id = (parseInt(pages[pages.length -1]._id) + 1).toString();
             pages.push(page);
         }
 
-        function findPagesByWebsiteId(websiteId)
-        {
+        function findPagesByWebsiteId(websiteId) {
             var sitePages = [];
             for(var p in pages){
                 if(pages[p].websiteId === websiteId){
@@ -59,15 +54,13 @@
             return null;
         }
 
-        function deletePage(pageId)
-        {
+        function deletePage(pageId) {
             for(var p in pages) {
                 if (pages[p]._id == pageId) {
                     pages.splice(p,1);
                     return pages;
                 }
             }
-
             return null;
         }
     }

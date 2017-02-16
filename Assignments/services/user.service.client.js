@@ -5,10 +5,14 @@
 
     function UserService() {
         var users = [
-            {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-            {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-            {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
+            {_id: "123", email : "wonderalice@gmail.com", username: "alice",
+                password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
+            {_id: "234", email : "marleybob@mail.com", username: "bob",
+                password: "bob",      firstName: "Bob",    lastName: "Marley"  },
+            {_id: "345", email : "garciacgarly@mail.com", username: "charly",
+                password: "charly",   firstName: "Charly", lastName: "Garcia"  },
+            {_id: "456", email : "annunzijose@gmail.com", username: "jannunzi",
+                password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
         ];
         var api = {
             "createUser" : createUser,
@@ -17,9 +21,6 @@
             "findUserById": findUserById,
             "updateUser": updateUser,
             "deleteUser": deleteUser
-            //TODO: complete the CRUD functions
-            // "createUser": createUser,
-            // "deleteUser": deleteUser
         };
         return api;
 
