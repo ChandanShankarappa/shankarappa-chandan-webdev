@@ -48,10 +48,10 @@
         function updateUser(userId, newUser) {
             for(var u in users) {
                 if( users[u]._id === userId ) {
-                    users[u].firstName = user.firstName;
-                    users[u].lastName = user.lastName;
-                    users[u].username = user.username;
-                    users[u].password = user.password;
+                    users[u].firstName = newUser.firstName;
+                    users[u].lastName = newUser.lastName;
+                    users[u].username = newUser.username;
+                    users[u].password = newUser.password;
                     return angular.copy(users[u]);
                 }
             }
@@ -84,6 +84,7 @@
                     users.splice(u,1);
                 }
             }
+            console.log(users);
         }
     }
 })();

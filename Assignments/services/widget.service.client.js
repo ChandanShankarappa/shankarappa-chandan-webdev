@@ -54,7 +54,7 @@
 
         function findWidgetById(widgetId) {
             for(var w in widgets) {
-                if( widgets[w]._id == widgetId ) {
+                if( widgets[w]._id === widgetId ) {
                     return widgets[w];
                 }
             }
@@ -63,7 +63,7 @@
 
         function updateWidget(widgetId, widget) {
             for(var w in widgets) {
-                if( widgets[w]._id == widgetId ) {
+                if( widgets[w]._id === widgetId ) {
 
                     if( widget.widgetType == "HEADER"){
                         widgets[w].size = widget.size;
@@ -94,7 +94,7 @@
         function deleteWidget(widgetId)
         {
             for(var w in widgets) {
-                if (widgets[w]._id == widgetId) {
+                if (widgets[w]._id === widgetId) {
                     widgets.splice(w, 1);
                 }
             }
