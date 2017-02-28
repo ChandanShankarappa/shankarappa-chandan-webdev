@@ -8,8 +8,19 @@
         vm.register = registerUser;
 
         function registerUser(user) {
-            var registeredUser = UserService.createUser(user);
-            $location.url("/user/" + registeredUser._id);
+            var promise = UserService.createUser(user);
+            console.log(promise);
+            promise
+                .success(function (user) {
+                    var registeredUser = user;
+                    $location.url("/user/" + registeredUser._id);
+                    console.log(registeredUser);
+                })
+                .error(function(){
+                    vm.error = "Couldn't register.";
+                })
+
+
         }
     }
 

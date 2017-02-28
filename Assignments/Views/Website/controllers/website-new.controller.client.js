@@ -5,14 +5,32 @@
 
     function NewWebsiteController($routeParams, $location, WebsiteService) {
         var vm = this;
-        vm.userId = $routeParams.uid;
-        vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
-        vm.newWebsite = newWebsite;
-
-        function newWebsite(website) {
-            WebsiteService.createWebsite(vm.userId, website);
-            $location.url('/user/'+vm.userId+'/website');
+        vm.newWebsite = createWebsite;
+        vm.userId = $routeParams["uid"];
+        function init() {
+            WebsiteService
+                .findWebsitesByUser(vm.userId)
+                .success(function (sites) {
+                    vm.websites = sites;
+                });
         }
 
+        init();
+
+        function createWebsite(website) {
+            console.log("Hit");
+            WebsiteService
+                .createWebsite(vm.userId, website)
+                .success(function (response) {
+                    var newWebsite = response;
+                    if (website) {
+                        $location.url("/user/" + vm.userId + "/website");
+                    }
+                })
+                .error(function (response) {
+                    vm.error = "Could not create website, try again after some time";
+                    return;
+                });
+        }
     }
 })();
