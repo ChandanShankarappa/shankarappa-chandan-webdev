@@ -107,6 +107,7 @@ module.exports = function (app) {
         })
         iWid.width = width;
         iWid.url = req.protocol + '://' +req.get('host')+"/Assignments/public/uploads/"+myFile.filename;
+        console.log(iWid.url);
         res.redirect("/Assignments/#/user/"+uid+"/website/"+wid+"/page/"+iWid.pageId+"/widget");
     }
 
