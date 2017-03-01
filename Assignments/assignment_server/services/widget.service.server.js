@@ -39,7 +39,11 @@ module.exports = function (app) {
         widget._id = wid;
         widget.pageId = pageId;
         widget.index = newIndex;
+        if(widget.widgetType == "IMAGE"){
+            widget.width = "100%";
+        }
         widgets.push(widget);
+        console.log(widget);
         res.json(widget);
     }
 
@@ -147,9 +151,10 @@ module.exports = function (app) {
         var iWid = widgets.find(function (widget) {
             return widget._id == widgetId;
         })
-        iWid.width = width;
+        iWid.width = "100%";
+
         iWid.url = req.protocol + '://' +req.get('host')+"/Assignments/public/uploads/"+myFile.filename;
-        console.log(iWid.url);
+        console.log(iWid.width);
         res.redirect("/Assignments/#/user/"+uid+"/website/"+wid+"/page/"+iWid.pageId+"/widget");
     }
 

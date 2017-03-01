@@ -25,7 +25,7 @@
 <div wbdv-sortable id = "widget-list" >
     <div class ="container-fluid listHandler" ng-repeat="widget in model.widgets">
         <div  ng-switch="widget.widgetType">
-            <div class="widgetHandler">
+            <div class="widgetHandler container-fluid">
                 <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
