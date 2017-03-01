@@ -102,7 +102,6 @@ module.exports = function (app) {
                 if(widget.widgetType === "IMAGE"){
                     // Remove the uploaded image
                     var imageName = widget.url.split('//').pop().split("/").pop();
-                    deleteUploadedImage(imageName);
                 }
                 widgets.splice(i,1);
                 updateIndexesAfterDelete(deletedIndex, deletedWidgetPageId);

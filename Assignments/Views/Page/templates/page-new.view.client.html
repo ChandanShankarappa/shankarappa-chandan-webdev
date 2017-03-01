@@ -42,7 +42,8 @@
 
     <ul class="list-group pushDown">
         <li ng-repeat="page in model.pages" class="list-group-item">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget"
+               style = "text-decoration: none">
                 {{page.name}}
             </a>
             <div class="pull-right">

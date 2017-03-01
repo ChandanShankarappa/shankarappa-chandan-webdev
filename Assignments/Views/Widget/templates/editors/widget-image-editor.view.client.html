@@ -43,8 +43,14 @@
                value="{{model.widget._id}}"
                style="display: none"/>
         <button type="submit"
-                class="btn btn-block btn-primary">Upload Image</button>
+               class="btn btn-block btn-primary">Upload Image</button>
+
+        <a class="btn btn-danger btn-block"
+           ng-click="model.deleteWidget(model.widget._id)">
+            Delete
+        </a>
     </form>
+
 </div>
 
 <nav class="navbar navbar-fixed-bottom bg-primary">
