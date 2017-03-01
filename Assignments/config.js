@@ -73,6 +73,21 @@
                 controller: "EditWidgetController",
                 controllerAs: "model"
             })
+            .when("/user/:uid/website/:wid/page/:pid/widget/new/heading", {
+                templateUrl: "Views/Widget/templates/editors/widget-heading-creator.view.client.html",
+                controller: "NewWidgetController",
+                controllerAs: "model"
+            })
+            .when("/user/:uid/website/:wid/page/:pid/widget/new/image", {
+                templateUrl: "Views/Widget/templates/editors/widget-image-editor.view.client.html",
+                controller: "NewWidgetController",
+                controllerAs: "model"
+            })
+            .when("/user/:uid/website/:wid/page/:pid/widget/new/youtube", {
+                templateUrl: "Views/Widget/templates/editors/widget-youtube-editor.view.client.html",
+                controller: "NewWidgetController",
+                controllerAs: "model"
+            })
             .otherwise({redirectTo:'/login'})
     }
 })();

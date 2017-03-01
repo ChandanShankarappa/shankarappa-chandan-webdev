@@ -29,17 +29,21 @@
                placeholder="Text"/>
 
 
-            <label for="headersize">Size</label>
-            <select id="headersize"
-                    ng-model="model.widget.size"
-                    class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-            </select>
+        <label for="headersize">Size</label>
+        <select id="headersize"
+                ng-model="model.widget.size"
+                class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select>
+        <a class="form-control btn btn-success pushDown"
+           ng-click="model.createHeaderWidget()">
+            Create
+        </a>
         <a class="form-control btn btn-danger pushDown"
            ng-click="model.deleteWidget(model.widget._id)">
             Delete

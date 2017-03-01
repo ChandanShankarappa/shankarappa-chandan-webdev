@@ -18,15 +18,15 @@
         </div>
     </div>
 </nav>
-<div class="form-group">
+<div class="form-group container-fluid">
     <form action="/api/upload" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="inputwidth">Width</label>
             <input type="text"
-                   name="width"
-                   id="inputwidth"
+                   ng-model="model.widget.width"
                    class="form-control"
-                   ng-model="model.widget.width"/>
+                   id="inputwidth"
+                   placeholder = "100%"/>
         </div>
         <label for="inputimage">Upload</label>
         <input name="myFile"

@@ -53,6 +53,7 @@
 
         function createHeaderWidget() {
             var newWidget = { "_id": "", "widgetType": "HEADER", "pageId": "", "size": 2, "text": "Text"};
+            console.log("HIT");
             WidgetService
                 .createWidget(vm.pageId, newWidget)
                 .success(function(widget){

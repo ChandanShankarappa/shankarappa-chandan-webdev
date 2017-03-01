@@ -1,19 +1,19 @@
 
 <nav class="navbar navbar-fixed-top bg-primary">
     <div class="row-container-fluid">
-    <div class="col-sm-4 hidden-xs">
+    <div class="col-sm-4">
         <div class="navbar-text pull-left">
             <a href="#/user/{{model.userId}}/website" class="naviBar">
                 <span class="glyphicon glyphicon-chevron-left">
                 </span>
             </a>
         </div>
-        <div class="navbar-header">
+        <div class="navbar-header hidden-xs">
             <a href = "#" class="navbar-brand naviBar">
                 Websites
             </a>
         </div>
-        <div class="navbar-text pull-right">
+        <div class="navbar-text pull-right hidden-xs">
             <a href="#/user/{{model.userId}}/website/new" class="naviBar">
                 <span class="glyphicon glyphicon-plus">
                 </span>
@@ -21,24 +21,21 @@
         </div>
     </div>
     <div class="col-sm-8">
-        <div class="navbar-header pull-left">
-            <a class="navbar-brand naviBar spaceHandle" href="#">
-                New Website
-            </a>
-        </div>
         <div class="navbar-text pull-right">
             <a ng-click="model.newWebsite(model.website)" class="naviBar">
                 <span class="glyphicon glyphicon-ok">
                 </span>
             </a>
         </div>
-    </div>
-    </div>
+        <div class="navbar-header">
+            <a class="navbar-brand naviBar" href="#">
+                New Website
+            </a>
+        </div>
 </nav>
 
 <div class="col-sm-4 hidden-xs">
-    <div class="container-fluid pushDown">
-        <ul class="list-group">
+        <ul class="list-group pushDown">
             <li ng-repeat="website in model.websites" class="list-group-item">
                 <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
                     {{website.name}}

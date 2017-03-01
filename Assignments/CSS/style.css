@@ -40,6 +40,11 @@ body {
     line-height : 50px;
 }
 
+.cogHandle{
+    padding : 0px 15px;
+    //line-height : 50px;
+}
+
 .listHandler{
     margin-top: 20px;
     margin-bottom: 20px;
