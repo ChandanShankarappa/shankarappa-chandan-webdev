@@ -6,7 +6,7 @@
         .controller("NewWidgetController", NewWidgetController)
         .controller("EditWidgetController", EditWidgetController);
 
-    function WidgetListController($routeParams, WidgetService, $sce) {
+    function WidgetListController($routeParams, $location, WidgetService, $sce) {
         var vm = this;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
@@ -19,7 +19,7 @@
                 .findWidgetsByPageId(vm.pageId)
                 .success(function(widgets){
                     vm.widgets = widgets;
-111                });
+                });
         }
         $('#widget-list')
             .sortable({
@@ -50,21 +50,60 @@
         vm.createHeaderWidget = createHeaderWidget;
         vm.createYouTubeWidget = createYouTubeWidget;
         vm.createImageWidget = createImageWidget;
+        vm.createTEXTWidget     = createTEXTWidget;
+        vm.createHTMLWidget     = createHTMLWidget;
+
+        function createTEXTWidget() {
+            var widget = {  type: "TEXT",
+                text: "Sample text",
+                rows: 1,
+                placeholder: "Enter some text",
+                formatted: false};
+            WidgetService
+                .createWidget(vm.pageId, widget)
+                .success(function (response) {
+                    var newWidget = response;
+                    if(newWidget){
+                        console.log(newWidget._id);
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+newWidget._id);
+                    }
+                })
+                .error(function (response) {
+
+                });
+        }
 
         function createHeaderWidget() {
-            var newWidget = { "_id": "", "widgetType": "HEADER", "pageId": "", "size": 2, "text": "Text"};
+            var newWidget = { "type": "HEADER", "size": 2, "text": "Text"};
             console.log("HIT");
             WidgetService
                 .createWidget(vm.pageId, newWidget)
                 .success(function(widget){
                     newWidget = widget;
+                    console.log(widget);
                     $location.url('/user/'+vm.userId+'/website/'+vm.websiteId+'/page/'+vm.pageId+'/widget/'+ newWidget._id);
                     });
 
         }
 
+        function createHTMLWidget() {
+            var widget = {type: "HTML",
+                text: "Sample <i>HTML</i> text"};
+            WidgetService
+                .createWidget(vm.pageId, widget)
+                .success(function (response) {
+                    var newWidget = response;
+                    if(newWidget){
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+newWidget._id);
+                    }
+                })
+                .error(function (response) {
+
+                })
+        }
+
         function createYouTubeWidget() {
-            var newWidget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "100%", "url": "URL"};
+            var newWidget =  {"type": "YOUTUBE", "width": "100%", "url": "URL"};
             WidgetService
                 .createWidget(vm.pageId, newWidget)
                 .success(function(widget){
@@ -75,7 +114,7 @@
         }
 
         function createImageWidget() {
-            var newWidget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "100%", "url": "URL"};
+            var newWidget = { "type": "IMAGE", "width": "100%", "url": "URL"};
             WidgetService
                 .createWidget(vm.pageId, newWidget)
                 .success(function(widget){

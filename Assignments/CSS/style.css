@@ -23,6 +23,11 @@ body {
     top : 20px;
 }
 
+.pushDown2{
+    position: relative;
+    top : 5px;
+}
+
 .widgetHandler{
     position : absolute;
     right : 15px;
@@ -49,4 +54,32 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     padding-bottom: 60px;
+}
+
+.deleteHandler{
+    position: relative;
+    top : 10px;
+    margin-bottom : 60px;
+}
+
+.wbdev-flickr-image-box{
+    margin-top: 5px;
+    text-align: center;
+}
+.wbdev-flickr-image-box img {
+    cursor: pointer;
+}
+
+.wbdev-youtube-widget{
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.wbdev-youtube-widget iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

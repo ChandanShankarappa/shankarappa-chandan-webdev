@@ -2,8 +2,6 @@
     angular
         .module('WebAppMaker')
         .directive('wbdvSortable', sortableDir);
-    console.log("hit");
-    console.log("Checking!");
 
     function sortableDir() {
         function linkFunc(scope, element, attributes, sortingController) {

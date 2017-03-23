@@ -39,10 +39,10 @@
                 UserService
                     .deleteUser(userId)
                     .success(function(){
-                        var index = $location.path().lastIndexOf("/");
-                        var path = $location.path().substring(0, index);
-                        index = path.lastIndexOf("/");
-                        $location.url(path.substring(0, index));
+                        // var index = $location.path().lastIndexOf("/");
+                        // var path = $location.path().substring(0, index);
+                        // index = path.lastIndexOf("/");
+                        $location.url("#/");
                     })
                     .error(function(){
                         vm.error = 'Unable to remove user';

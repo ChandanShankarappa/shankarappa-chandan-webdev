@@ -12,7 +12,7 @@
 
         function init() {
             WebsiteService
-                .findWebsitesById(vm.websiteId)
+                .findWebsitesByUser(vm.websiteId)
                 .success(function (response) {
                     vm.website = response;
                     if(vm.website){

@@ -22,7 +22,7 @@
     <form action="/api/upload" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="inputwidth">Width</label>
-            <input type="text"
+            <input name = "width"
                    ng-model="model.widget.width"
                    class="form-control"
                    id="inputwidth"
@@ -42,13 +42,21 @@
         <input name="widgetId"
                value="{{model.widget._id}}"
                style="display: none"/>
+        <input name="pageId"
+               value="{{model.pageId}}"
+               style="display: none"/>
         <button type="submit"
                class="btn btn-block btn-primary">Upload Image</button>
-
-        <a class="btn btn-danger btn-block"
-           ng-click="model.deleteWidget(model.widget._id)">
-            Delete
-        </a>
+        <div class="form-group pushDown2">
+            <a class="btn btn-info btn-block"
+               href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widget._id}}/flickrsearch">
+                Search Flickr
+            </a>
+            <a class="btn btn-danger btn-block"
+               ng-click="model.deleteWidget(model.widget._id)">
+                Delete
+            </a>
+        </div>
     </form>
 
 </div>

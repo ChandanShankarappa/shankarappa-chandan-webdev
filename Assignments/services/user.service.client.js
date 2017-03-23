@@ -48,6 +48,7 @@
         function deleteUser(userId)
         {
             $http.delete("/api/user/"+userId);
+            console.log(userId);
         }
     }
 })();
