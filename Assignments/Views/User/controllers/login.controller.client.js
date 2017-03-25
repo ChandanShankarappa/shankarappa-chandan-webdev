@@ -9,21 +9,29 @@
         vm.login = login;
 
         function login(user) {
-            var promise = UserService.findUserByCredentials(user.username, user.password);
             console.log(user);
-            promise
-                .success(function (user) {
-                    var loginUser = user;
-                    console.log(user);
-                    if(loginUser) {
-                        $location.url('/user/' + loginUser._id);
-                    } else {
-                        vm.error = 'user not found';
-                    }
-                })
-                .error(function(err) {
-                    vm.error = 'user not found';
-                });
+            if(user) {
+                if (user.username != '\s') {
+                    var promise = UserService.findUserByCredentials(user.username, user.password);
+                    promise
+                        .success(function (user) {
+                            var loginUser = user;
+                            console.log(user);
+                            if (loginUser) {
+                                $location.url('/user/' + loginUser._id);
+                            } else {
+                                vm.error = 'User not found. Please make sure you have keyed in the name properly.';
+                            }
+                        })
+                        .error(function (err) {
+                            vm.error = 'User not found. Please make sure you have keyed in the name properly.';
+                        });
+                } else {
+                    vm.error = "Enter a valid username."
+                }
+            }else{
+                vm.error = "Enter username and password."
+            }
         }
     }
 })();

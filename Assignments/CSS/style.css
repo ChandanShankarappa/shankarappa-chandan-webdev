@@ -41,7 +41,7 @@ body {
 }
 
 .spaceHandle{
-    padding : 0px 0px;
+    padding : 0px 15px;
     line-height : 50px;
 }
 
@@ -54,6 +54,10 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     padding-bottom: 60px;
+}
+
+.listh{
+    padding-bottom : 100px;
 }
 
 .deleteHandler{
@@ -83,3 +87,28 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.bground {
+    background-image : url("https://images2.alphacoders.com/207/207872.jpg");
+}
+
+.wrap{
+    border-: solid;
+    word-wrap : break-word;
+    border-color : lawngreen;
+    color : red;
+}
+
+.customFont {
+    font-family: 'Baloo Bhaina', cursive;
+}
+
+.wrapp {
+    width: 15em;
+    border: 1px solid;
+    border-radius : 10px;
+    color : mediumpurple;
+    background : black;
+    word-wrap: break-word;
+}
+

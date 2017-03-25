@@ -45,13 +45,27 @@
         init();
 
         function newPage(page) {
-            PageService
-                .createPage(vm.websiteId, page)
-                .success(function(response){
-                    if(response){
-                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            if(page.name && page.name != '\s') {
+                var check = 0;
+                for (p in vm.pages) {
+                    if (page.name == vm.pages[p].name) {
+                        check = 1;
                     }
-                });
+                }
+                if (check == 1) {
+                    vm.error = "Page already exists";
+                } else {
+                    PageService
+                        .createPage(vm.websiteId, page)
+                        .success(function (response) {
+                            if (response) {
+                                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                            }
+                        });
+                }
+            }else{
+                vm.error = "Page name can't be blank!";
+            }
 
         }
     }
@@ -80,13 +94,27 @@
         init();
 
         function updatePage(page) {
-            PageService
-                .updatePage(vm.pageId, page)
-                .success(function(response){
-                    if(response){
-                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            var check = 0;
+            if(page.name && page.name!= '\s') {
+                for(p in vm.pages){
+                    if(page._id != vm.pages[p]._id  && page.name == vm.pages[p].name){
+                        check = 1;
                     }
-                });
+                }
+                if(check == 1){
+                    vm.error = "Page name already exists."
+                }else {
+                    PageService
+                        .updatePage(vm.pageId, page)
+                        .success(function (response) {
+                            if (response) {
+                                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                            }
+                        });
+                }
+            }else{
+                vm.error = "Page name can't be blank!";
+            }
 
         }
 

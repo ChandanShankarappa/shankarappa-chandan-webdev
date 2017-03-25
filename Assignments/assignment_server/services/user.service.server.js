@@ -175,8 +175,24 @@ module.exports = function (app, userModel) {
                 res.sendStatus(404);
             });
     }
+    function findUserbyUsername(req, res) {
+        var usernamesent = req.query.username;
+        userModel
+            .findUserByUsername(usernamesent)
+            .then(function (users) {
+                if(users.length != 0){
+                    res.json(users[0]);
+                }
+                else{
+                    res.sendStatus(404);
+                }
+            },function (err) {
+                res.sendStatus(404);
+            });
+    }
     function createUser(req, res){
         var user = req.body;
+        var check  = 10;
         var newUser = {
             username: user.username,
             password: user.password,
@@ -184,13 +200,38 @@ module.exports = function (app, userModel) {
             firstName: user.firstname,
             lastName: user.lastname};
         userModel
-            .createUser(newUser)
-            .then(function (newUser) {
-                res.json(newUser);
-            },function (err) {
-                res.sendStatus(404).send(err);
+            .findUserByUsername(user.username)
+            .then(function (users){
+                if(users.length != 0){
+                    res.sendStatus(420);
+                }else{
+                    console.log("HIT");
+                    userModel
+                        .createUser(user)
+                        .then(function (nUser) {
+                            res.json(nUser);
+                        }, function(err){
+                            res.sendStatus(404);
+                        });
+                }
+            },function(err) {
+                res.sendStatus(404);
             });
+
+            // if(check == 0){
+            //     userModel
+            //         .createUser(newUser)
+            //         .then(function (newUser) {
+            //             console.log(newUser);
+            //             res.json(newUser);
+            //         },function (err) {
+            //             res.sendStatus(404).send(err);
+            //         });
+            // }else{
+            //     res.sendStatus(420);
+            // }
     }
+
     function deleteUser(req, res) {
         var userId = req.params.userId;
         console.log(userId);

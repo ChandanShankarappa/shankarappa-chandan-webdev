@@ -53,7 +53,10 @@
     </ul>
 </div>
 
-<div class="col-sm-8 pushDown">
+<div class="col-sm-8 pushDown listh">
+    <div ng-show="model.error" class = "alert alert-danger" role = "alert">
+        {{model.error}}
+    </div>
     <label for="page-name">Name</label>
     <input value="Page n"
            ng-model="model.page.name"

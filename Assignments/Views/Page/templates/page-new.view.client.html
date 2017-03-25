@@ -56,6 +56,9 @@
 </div>
 
 <div class="col-sm-8 pushDown">
+    <div ng-show="model.error" class = "alert alert-danger" role = "alert">
+        {{model.error}}
+    </div>
     <label for="page-name">Name</label>
     <input placeholder="Name"
            ng-model="model.page.name"

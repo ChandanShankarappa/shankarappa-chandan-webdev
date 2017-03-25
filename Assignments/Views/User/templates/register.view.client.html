@@ -1,6 +1,9 @@
 
     <div class="container-fluid">
         <h1>Register</h1>
+        <div ng-show="model.err" class="alert alert-danger" role="alert">
+            {{model.err}}
+        </div>
         <input type="text"
                ng-model="model.user.username"
                class="form-control"
@@ -10,6 +13,7 @@
                class="form-control"
                placeholder="password"/>
         <input type="password"
+               ng-model="model.vPassword"
                class="form-control"
                placeholder="verify password"/>
         <a class="btn btn-primary btn-block"

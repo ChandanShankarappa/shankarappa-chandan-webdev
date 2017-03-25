@@ -85,15 +85,32 @@ module.exports = function (app, websiteModel) {
     function createWebsite(req, res){
         var userId = req.params.userId;
         var newwebsite = req.body;
+        var check = 0;
 
         websiteModel
-            .createWebsiteForUser(userId, newwebsite)
-            .then(function (website) {
-                res.json(website);
-            },function (err) {
-                res.sendStatus(404);
-            });
+            .findAllWebsitesForUser(userId)
+            .then(function(websites){
+                for(w in websites){
+                    if (newwebsite.name == websites[w].name)
+                    {
+                        check = 1;
+                    }
+                }
+                if(check == 1){
+                    res.sendStatus(420);
+                }else{
+                    websiteModel
+                        .createWebsiteForUser(userId, newwebsite)
+                        .then(function (website) {
+                            res.json(website);
+                        },function (err) {
+                            res.sendStatus(404);
+                        });
+                }
+                });
+
     }
+
     function findAllWebsitesForUser(req, res){
         var userId = req.params.userId;
         websiteModel
