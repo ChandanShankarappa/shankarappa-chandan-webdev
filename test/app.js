@@ -4,7 +4,7 @@ module.exports = function(app)
     app.post("/api/test", createMessage);
     app.delete("/api/test/:id", deleteMessage);
 
-    var connectionString = 'cshankarappa:admin@ds115071.mlab.com:15071/homepage';
+    var connectionString = 'cshankarappa:admin@ds111549.mlab.com:11549/sandbox';
 
     // if(process.env.MLAB_USERNAME) {
     //     connectionString = process.env.MLAB_USERNAME + ":" +
